@@ -3,8 +3,8 @@ import numpy as np
 def swing_door_trending(x, y, e):
     _x = np.array(x)
     _y = np.array(y)
-    _upper = y[0] + e
-    _lower = y[0] - e
+    _upper = _y[0] + e
+    _lower = _y[0] - e
     max_angle_upper = 0
     max_angle_lower = 0
     keep = [0]
@@ -17,7 +17,7 @@ def swing_door_trending(x, y, e):
         if (max_angle_upper + max_angle_lower >= 180) | (i == (len(_y)-1)):
             max_angle_upper = 0
             max_angle_lower = 0
-            _upper = y[i] + e
-            _lower = y[i] - e
+            _upper = _y[i] + e
+            _lower = _y[i] - e
             keep.append(i)
     return keep, _x[keep], _y[keep]
